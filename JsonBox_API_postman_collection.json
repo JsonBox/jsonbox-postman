@@ -1,0 +1,309 @@
+{
+  "info": {
+    "name": "JsonBox API",
+    "description": "Коллекция запросов для JsonBox API - простого и удобного хранения JSON данных",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "api_key",
+      "value": "your_api_key_here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "📊 Основные операции",
+      "item": [
+        {
+          "name": "💾 Сохранить данные",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\",\n  \"data\": {\n    \"name\": \"John Doe\",\n    \"age\": 30,\n    \"city\": \"Moscow\",\n    \"skills\": [\n      \"PHP\",\n      \"JavaScript\"\n    ],\n    \"active\": true\n  }\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=store",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "store"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "🔄 Частичное обновление",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\",\n  \"data_update\": {\n    \"age\": 31,\n    \"skills\": [\n      \"PHP\",\n      \"JavaScript\",\n      \"Python\"\n    ]\n  }\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=store",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "store"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "📖 Получить данные",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=get&api_key={{api_key}}",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "get"
+                },
+                {
+                  "key": "api_key",
+                  "value": "{{api_key}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "🗑️ Удалить данные",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\"\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=delete",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "delete"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "⚙️ Управление настройками",
+      "item": [
+        {
+          "name": "📋 Получить все настройки",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=get_settings&api_key={{api_key}}",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "get_settings"
+                },
+                {
+                  "key": "api_key",
+                  "value": "{{api_key}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "🔧 Включить/выключить веб-отображение",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\",\n  \"setting_name\": \"web_display_enabled\",\n  \"setting_value\": \"false\"\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=set_setting",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "set_setting"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "🎨 Установить тёмную тему",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\",\n  \"setting_name\": \"web_theme_style\",\n  \"setting_value\": \"dark\"\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=set_setting",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "set_setting"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔑 Управление API ключом",
+      "item": [
+        {
+          "name": "🔄 Перегенерировать API ключ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"{{api_key}}\"\n}"
+            },
+            "url": {
+              "raw": "https://jsonbox.ru/api.php?action=regenerate_key",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "api.php"
+              ],
+              "query": [
+                {
+                  "key": "action",
+                  "value": "regenerate_key"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🌐 Веб-отображение",
+      "item": [
+        {
+          "name": "🔗 Посмотреть как веб-страницу",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://jsonbox.ru/page.php?key={{api_key}}",
+              "protocol": "https",
+              "host": [
+                "jsonbox",
+                "ru"
+              ],
+              "path": [
+                "{{api_key}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
