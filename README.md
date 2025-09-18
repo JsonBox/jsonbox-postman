@@ -5,11 +5,11 @@ Postman-коллекция для JsonBox.ru — лёгкого REST API-сер�
 
 ```
 jsonbox-postman/
-├─ README.md
-├─ JsonBox_API_postman_collection.json
 ├─ examples/
 │  └─ quickstart.md
-└─ LICENSE
+├─ JsonBox_API_postman_collection.json
+├─ LICENSE
+└─ README.md
 ```
 
 ---
